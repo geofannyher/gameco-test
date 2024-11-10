@@ -54,21 +54,23 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="w-full md:w-96 mx-auto p-4 border border-gray-200 rounded shadow-md">
-      <form onSubmit={handleSubmit(handleLoginSubmit)}>
-        <h1 className="text-2xl font-semibold mb-4">Login</h1>
-        <FormGenerator
-          schema={schema}
-          state={state}
-          model={model}
-          updateModelValue={updateModelValue}
-        />
-        <div className="mt-4">
-          <Button type="submit" className="w-full">
-            Login
-          </Button>
-        </div>
-      </form>
+    <div className="flex h-[100dvh] justify-center items-center">
+      <div className="w-full md:w-96 mx-auto p-4 border border-gray-200 rounded shadow-md">
+        <form onSubmit={handleSubmit(handleLoginSubmit)}>
+          <h1 className="text-2xl font-semibold mb-4">Login</h1>
+          <FormGenerator
+            schema={schema}
+            state={state}
+            model={model}
+            updateModelValue={updateModelValue}
+          />
+          <div className="mt-4">
+            <Button type="submit" className="w-full">
+              Login
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

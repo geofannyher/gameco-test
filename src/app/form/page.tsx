@@ -29,30 +29,38 @@ export default function FormPage() {
     model: { first_name: "", last_name: "" },
   });
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //     e.preventDefault();
-  //     console.log(model, state.isDirty);
-  // };
-
   const logSubmit = async (model: FormModel) => {
     console.log(model);
   };
   return (
-    <>
-      <h1>Form Page</h1>
-      <form onSubmit={handleSubmit(logSubmit)}>
+    <div className="container mx-auto px-4 py-6">
+      <h1 className="text-3xl font-bold text-center mb-6">Form Page</h1>
+
+      <form
+        onSubmit={handleSubmit(logSubmit)}
+        className="bg-white p-6 rounded-lg shadow-md"
+      >
         <FormGenerator
           schema={schema}
           state={state}
           model={model}
           updateModelValue={updateModelValue}
         />
-        <Button type={"submit"}>Submit</Button>
+
+        <Button type="submit" className="w-full mt-4">
+          Submit
+        </Button>
       </form>
-      <hr />
-      <form action={logout}>
-        <button type={"submit"}>Logout</button>
+
+      <div className="flex justify-center mt-6">
+        <hr className="w-1/4 border-gray-300" />
+      </div>
+
+      <form action={logout} className="mt-6 text-center">
+        <Button type="submit" variant="default" size="default">
+          Logout
+        </Button>
       </form>
-    </>
+    </div>
   );
 }
